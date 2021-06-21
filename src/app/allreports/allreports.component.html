@@ -1,0 +1,63 @@
+<div class="container">
+    <label> Customer Transaction Report </label><br/>
+<label> Select Name</label>
+<select [(ngModel)]="id">
+    <option  *ngFor="let customer of customerList" value="{{customer.id}}">{{customer.name}}
+    </option>
+</select> &nbsp;&nbsp;
+<label> Transaction Type</label>
+<select [(ngModel)]="tranType">
+    <option>Debit</option>
+    <option>Credit</option>
+    <option>both</option>
+</select>
+<label> From Date </label><input type="date" [(ngModel)]="fromDate">
+
+<label> To Date </label><input type="date" [(ngModel)]="toDate"> <br/> <br/>
+
+<input type="submit" (click)="search()" value="Search"> &nbsp; &nbsp;
+<input type="submit" (click)="print()" value="Save & Print">
+</div>
+
+
+<div *ngIf="length !==undefined && length > 0">
+<div class="cont" >
+<div class="container">
+    <div class="row" >
+        <div class="col1">
+           Date  
+        </div>
+        <div class="col1">
+            Type  
+         </div>
+         <div class="col1">
+            Amount  
+         </div>
+         <div class="col1">
+            Balance  
+         </div>
+    </div>
+    
+    <div  *ngFor="let tran of transactionList">
+        <div class="row">
+                <div class="col">
+                    {{tran.date}}
+                </div>
+                <div class="col">
+                    {{tran.type}}
+                </div>
+                <div class="col">
+                    {{tran.amount}}
+                </div>
+                <div class="col">
+                    {{tran.balance}}
+                </div>
+        </div>
+        
+      </div> 
+      <div class="container">
+        <label> Transaction total Credit amount for selected date = {{totalCreditAmount}}</label><br/>
+        <label> Transaction total Debit amount for selected date = {{totalDebitAmount}}</label>
+      </div>
+    </div>
+    </div>

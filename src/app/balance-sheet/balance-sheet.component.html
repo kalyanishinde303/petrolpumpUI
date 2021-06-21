@@ -1,0 +1,60 @@
+<div class="container">
+    <label> Balance Sheet Report Date wise </label> <br/>
+    <label> From Date </label><input type="date" [(ngModel)]="fromDate">
+    
+    <label> To Date </label><input type="date" [(ngModel)]="toDate"> <br/> <br/>
+    
+    <input type="submit" (click)="search()" value="Search"> &nbsp;&nbsp;
+    <input type="submit" (click)="print()" value="Save & Print">
+</div>
+ 
+<div *ngIf='sheetList.length !==undefined && sheetList.length > 0'>
+    <div class="cont" >
+    <div class="container">
+        <div class="row" >
+            <div class="col1">
+               Date  
+            </div>
+            <div class="col1">
+                Total Sale  
+             </div>
+             <div class="col1">
+                Bank Payment  
+             </div>
+             <div class="col1">
+               Debit Payment  
+             </div>
+             <div class="col1">
+                Last Balance  
+              </div>
+              <div class="col1">
+               Cash In Hand 
+              </div>
+        </div>
+        
+        <div  *ngFor="let sheet of sheetList">
+            <div class="row">
+                    <div class="col">
+                        {{sheet.sheetDate}}
+                    </div>
+                    <div class="col">
+                        {{sheet.totalSale}}
+                    </div>
+                    <div class="col">
+                        {{sheet.totalBP}}
+                    </div>
+                    <div class="col">
+                        {{sheet.totalDBP}}
+                    </div>
+                    <div class="col">
+                        {{sheet.balance}}
+                    </div>
+                    <div class="col">
+                        {{sheet.totalCashInHnd}}
+                    </div>
+            </div>
+            
+          </div> 
+          
+        </div>
+        </div>   

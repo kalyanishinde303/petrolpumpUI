@@ -1,0 +1,11 @@
+
+<br/>
+<label>Select Customer Name</label>
+
+                    
+<select [(ngModel)]="id">
+    <option  *ngFor="let customer of custList" value="{{customer.id}}">{{customer.name}}
+    </option>
+</select> &nbsp;&nbsp;
+<br/> <br/>
+<input type="submit" (click)="delete()" value="Delete customer">

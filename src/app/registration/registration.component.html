@@ -1,0 +1,16 @@
+<div *ngIf="flag">
+<label for="uname"><b>Email</b></label>
+<input type="text" [(ngModel)]="user.email" placeholder="Enter Email" name="uname" required>
+
+<label for="psw"><b>Password</b></label>
+<input type="password"  [(ngModel)]="user.password"placeholder="Enter Password" name="psw" required>
+<label for="uname"><b>First Name</b></label>
+<input type="text"  [(ngModel)]="user.firstName"placeholder="Enter First Name"  required>
+<label for="uname"><b>Last Name</b></label>
+<input type="text"  [(ngModel)]="user.lastName"placeholder="Enter last Name"  required>
+<label for="uname"><b>Mobile</b></label>
+<input type="text"  [(ngModel)]="user.mobile" placeholder="Enter Mobile no." name="mobile" required>
+ 
+<button (click)="save()">Register</button>
+
+</div>

@@ -1,0 +1,79 @@
+div.petrol1 {
+    
+    background-color:lightblue;
+    padding: 5px;
+    border: 1px solid rgba(135, 135, 233, 0.247); 
+    border-block-end-width: 10px;
+    border-block-start-width: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: rgb(165, 217, 233);
+     width: 300px;
+     padding: 30px;
+     float: right;
+     font-size: 17px;
+  }
+  
+  div.petrol {
+    background-color:lightblue;
+    display: table-row; 
+    width: 400px;
+    height: 100px;
+    padding: 5px;
+    border: 1px solid rgb(156, 156, 187);  
+    background-color: rgb(219, 219, 184);
+    
+  }
+  div.cal {
+    
+    background-color:lightblue;
+    padding: 5px;
+    border: 1px solid rgb(44, 44, 78); 
+    border-block-end-width: 10px;
+    border-block-start-width: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: rgb(204, 204, 195);
+     width: 670px;
+     padding: 30px;
+    float: center;
+    font-size: 40px;
+  }
+  div.dt {
+    
+    background-color:lightblue;
+    padding: 5px;
+    border: 1px solid rgb(86, 86, 163); 
+    border-block-end-width: 10px;
+    border-block-start-width: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: rgb(204, 204, 195);
+     width: 670px;
+     padding: 30px;
+     height: 30px;
+    float: center;
+    font-size: 25px;
+  }
+  input.label {
+    font-size: 40px;
+  }
+  div.dt.button{
+    width: 670px;
+     padding: 30px;
+    float: center;
+    font-size: 40px;
+  }
+
+  div.error{
+    font-size: 15px;
+    color: red;
+  }
+.btn {
+    background-color: rgb(48, 184, 82); /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    border-block-start-width: 10px;
+    border-bottom-right-radius: 10px;
+    font-size: 20px;
+  }

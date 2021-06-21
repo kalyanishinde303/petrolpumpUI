@@ -1,0 +1,182 @@
+   
+
+        <table align="center">
+                        <tr>
+                                        <td colspan="2">
+                                        <div class="dt">
+                                                <table align="center">                                                       
+                                                        <tr >
+                                                                <td class="btn" >
+                                                                        <label>Select date</label></td>
+                                                                <td class="btn"> <input  type="date" [(ngModel)]="date" (input)="getOpeningMeter1()"></td>
+                                                       
+                                                        </tr>
+                                                        
+                                                </table>
+                                        </div>
+                                          </td>
+                                         
+                                  </tr>
+                                
+            <tr>
+                <td>
+                <div class="petrol1">
+                        <h2>Petrol Meter one </h2>
+                        <table>
+                                <tr>
+                                        <td> <label>Opening meter</label></td>
+                                        <td><input type="number" [(ngModel)]="met1.mOpen" id="met1.mOpen" name="met1.mOpen"></td>
+                                </tr>
+                                <tr>
+                                       
+                                        <td><label>Closing meter</label></td>
+                                        <td><input type="number" #closeMeter1 [(ngModel)]="met1.mClose" id="met1.mClose" (input)="ptLitTotal()"
+                                                      (blur)="compareOCM1(met1.mOpen, met1.mClose)"  name="met1.mClose"></td>
+                                </tr>
+                               
+                        </table>
+                </div>
+                  </td>
+                  <td>
+                        <div class="petrol1">
+                                <h2>Disel Meter one </h2>
+                                <table>
+                                        <tr>
+                                                <td>
+                                                        <label>Opening meter</label></td>
+                                                <td> <input type="number" [(ngModel)]="met3.mOpen" id="met3.mOpen" name="met3.mOpen"></td>
+                                        </tr>
+                                        <tr>
+                                                <td> <label>Closing meter</label></td>
+                                                <td><input type="number" [(ngModel)]="met3.mClose" id="met3.mClose" (input)="dsLitTotal()"
+                                                        (blur)="compareOCM1(met3.mOpen, met3.mClose)"        name="met3.mClose"></td>
+                                        </tr>
+                                </table>
+                        </div>
+                </td>
+            </tr>
+            <tr>
+                    <td>
+                        <div class="petrol1">
+                                <h2>Petrol Meter Two </h2>
+                                <table>
+                                        <tr>
+                                                <td><label>Opening meter</label></td>
+                                                <td><input type="number" [(ngModel)]="met2.mOpen" id="met2.mOpen" name="met2.mOpen"> </td>
+                                        </tr>
+                                        <tr>
+                                                <td> <label>Closing meter</label></td>
+                                                <td> <input type="number" [(ngModel)]="met2.mClose" (input)="ptLitTotal()" id="met2.mClose"
+                                                        (blur)="compareOCM1(met2.mOpen, met2.mClose)"            name="met2.mClose"></td>
+                                        </tr>
+                                </table>
+                        </div>
+                        
+                      </td>
+                      <td>
+                        <div class = "petrol1">
+                                        <h2>Disel Meter Two </h2>
+                        <table>
+                                <tr>
+                                        <td><label>Opening meter</label></td>
+                                        <td><input type="number" [(ngModel)]="met4.mOpen" id="met4.mOpen" name="met4.mOpen"></td>
+                                </tr>
+                                <tr>
+                                        <td><label>Closing meter</label></td>
+                                        <td><input type="number" [(ngModel)]="met4.mClose" (input)="dsLitTotal()" id="met4.mClose"
+                                                (blur)="compareOCM1(met4.mOpen, met4.mClose)"               name="met4.mClose"></td>
+                                </tr>
+                        </table>
+                        </div>
+                    </td>
+                </tr>
+        <tr>
+              <td> 
+                <div class = "petrol1">
+                        <h2>Petrol Calculation </h2>
+                        <table>
+                        
+                                <tr>
+                        
+                                        <td> <label>Total ltr Petrol </label></td>
+                                        <td><input type="number" [(ngModel)]="ptCal.totalPtLtr" id="totalPtLtr" name="totalPtLtr" readonly ></td>
+                                <tr>
+                                        <td><label>Petrol rate</label></td>
+                                        <td> <input type="number" [(ngModel)]="ptCal.petrolRate" (input)="petrolRateTotal()" id="petrolRate"
+                                                        name="petrolRate"></td>
+                                </tr>
+                                <tr>
+                                        <td> <label>Petrol Sale Rs.</label></td>
+                                        <td> <input type="number" [(ngModel)]="ptCal.petrolSale" id="petrolSale" name="petrolSale" readonly></td>
+                                </tr>
+                        </table>
+                </div>
+                </td> 
+                <td>
+                        <div class="petrol1">
+                                <h2>Disel Calculation </h2>
+                                <table>
+                
+                                        <tr>
+                                                <td> <label>Total ltr Disel</label></td>
+                                                <td> <input type="number" [(ngModel)]="dlCal.totalDsLtr" id="totalDsLtr"
+                                                                name="totalDsLtr" readonly></td>
+                                        </tr>
+                                        <tr>
+                                                <td><label>Disel rate</label></td>
+                                                <td> <input type="number" [(ngModel)]="dlCal.diselRate" id="diselRate"
+                                                                (input)="diselRateTotal()" name="diselRate"></td>
+                                        </tr>
+                                        <tr>
+                                                <td><label>Disel sale Rs.</label></td>
+                                                <td><input type="number" [(ngModel)]="dlCal.diselSale" id="diselSale" name="diselSale" readonly>
+                                                </td>
+                                        </tr>
+                
+                                </table>
+                        </div>
+                </td>
+        </tr>
+        <tr>
+                <td colspan="2">
+                  <div class = "cal">
+                          <table align="center">
+                          <tr > <td ><button  class="btn"(click) = "save()" value="Save">Save</button></td>
+
+                          <td><button class="btn" (click) = "clear()" value="Clear">Clear</button></td></tr>
+                          </table>
+                  </div>
+                  </td>
+                 
+          </tr>
+        
+    </table>
+
+
+        <!-- </div><br/>
+        <div class="petrol2">
+                <label>Petrol Meter Two </label>
+                <label>Opening meter</label>
+                <input type="text" id="pmeter2Open" name = "pmeter2Open">
+                <label>Closing meter</label>
+                <input type="text" id="pmeter2Close" name = "pmeter2Close">
+        </div>
+
+    </div>
+
+   <div>
+            <label>Disel Meter One </label>
+            <label>Opening meter</label>
+            <input type="text" id="dmeter1Open" name = "dmeter1Open">
+            <label>Closing meter</label>
+            <input type="text" id="dmeter1Close" name = "dmeter1Close">
+        
+    </div>
+    <div>
+            <label>Disel Meter Two </label>
+            <label>Opening meter</label>
+            <input type="text" id="dmeter2Open" name = "dmeter2Open">
+            <label>Closing meter</label>
+            <input type="text" id="dmeter2Close" name = "dmeter2Close">
+    </div>
+</div> -->

@@ -1,0 +1,32 @@
+
+<div class="nav">
+  
+    <table>
+        <tr style="background: aqua;">
+            <td> Total Credit   </td>
+            <td> {{totalCredit}}</td>
+        </tr>
+        <tr><td>Name</td> <td>Balance</td> </tr>&nbsp;
+        <div *ngFor="let cust of customerList, let i=index">
+            <tr>
+                <td  width="400px">
+                    <label (click)="tranDetails(i,cust)"> {{cust.name}}</label>
+                </td>
+                <td  width="20px">
+                    <label>{{cust.balance}}</label>
+                </td>
+            </tr>
+         </div>
+         
+    </table>
+</div>
+
+<div *ngIf="flag === true; else other">
+    <app-transaction-details [cust]= "cust"> </app-transaction-details>
+</div>
+<ng-template #other>
+    <app-transaction-details [cust]= "cust"> 
+
+    </app-transaction-details>
+</ng-template>
+

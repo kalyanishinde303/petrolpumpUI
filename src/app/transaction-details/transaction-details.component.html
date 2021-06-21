@@ -1,0 +1,39 @@
+
+<div class="cont">
+<div *ngIf="cust !==undefined"> 
+<div class="row" *ngIf="cust !==undefined">
+    <div class="col1">
+       Date  
+    </div>
+    <div class="col1">
+        Type  
+     </div>
+     <div class="col1">
+        Amount  
+     </div>
+     <div class="col1">
+        Balance  
+     </div>
+</div>
+
+<div  *ngFor="let tran of transactionList">
+    <div class="row">
+            <div class="col">
+                {{tran.date}}
+            </div>
+            <div class="col">
+                {{tran.type}}
+            </div>
+            <div class="col">
+                {{tran.amount}}
+            </div>
+            <div class="col">
+                {{tran.balance}}
+            </div>
+    </div>
+    
+  </div> 
+
+  <div><input type="submit" (click)="print()" value="Save and Print"> </div>
+  </div>
+  </div>

@@ -1,0 +1,113 @@
+<div class="dt">
+<div class="container">
+        <label for="tranDate">Transaction Date
+        </label>
+             <input type="date" (blur)="getOpeningMeter1()" [(ngModel)]="transactionDate" id ="transactionDate">
+<div *ngFor="let j of explist; let i = index">
+         
+                  <label for="expName">Expenses Name</label>
+               
+                  <input type="text" [(ngModel)]="expensesList[i].expName" id="expName" name="expName" placeholder="Expenses Name..">
+                  &nbsp;&nbsp;
+                        <label for="expCost">Expenses Cost</label>
+                      
+                            <input type="number" [(ngModel)]="expensesList[i].expCost"id="expCost" name="expCost" placeholder="Expenses Cost..">
+                            &nbsp;&nbsp;&nbsp;
+</div>         
+
+                    <br/>
+              <div *ngFor="let k of dcList; let i =index">
+                    <br/>
+                    <label>Select Customer Name</label>
+
+                    
+                    <select [(ngModel)]="id[i]" (change)="setId(i)" id="cust_{{i}}">
+                        <option  *ngFor="let customer of customerList" value="{{customer.id}}">{{customer.name}}
+                        </option>
+                    </select> &nbsp;&nbsp;
+                    <label>Transaction Type</label>
+                    <select [(ngModel)]="transactions[i].type">
+                        <option>Debit</option>
+                        <option>Credit</option>
+                    </select>
+                   
+                    <input type="hidden" [(ngModel)]="transactions[i].custId" value="selectedCustomer.id">
+                    &nbsp;&nbsp;
+                    <label  *ngIf="transactions[i].type === 'Debit'">Cash/Bank</label>
+                    <select   *ngIf="transactions[i].type === 'Debit'" [(ngModel)]="transactions[i].medium" >
+                        <option value="Cash">Cash</option>
+                        <option value="Bank">Bank</option>
+                    </select>
+                    
+                    &nbsp;&nbsp;&nbsp;  <label>  Rs.</label>
+                    <input type="number"  [(ngModel)]="transactions[i].amount" id="transaction" />&nbsp;&nbsp;
+                    <!-- <label for="balance">Total balance</label> <label for="balance">{{this.custBalance[i]}}</label> -->
+                    &nbsp;&nbsp;&nbsp;
+               
+            </div> 
+            <br/><br/>
+                    <label>Avalible Balance</label>
+                    <input type="number"  [(ngModel)]="balance" id="balance" />&nbsp;&nbsp;
+                  
+           
+            <br/>
+            <br/>
+            <input type="submit"(click)= "addExpRow()" value="Add expenses"/> &nbsp;&nbsp;&nbsp;
+            <input type="submit" (click)= "addedDCRow()" value="Customer Transaction"/>
+            &nbsp;&nbsp;&nbsp;
+            <input type="submit" (click)= "calculate()" value="Calculation"/>
+            <br/><br/>
+            <!-- <label for="customerDebit">Customer Debit </label> <input type="text"  [(ngModel)]="customerDebit" readOnly>
+            <br/>
+            <label for="customerCredit">Customer Credit</label> <input type="text"  [(ngModel)]="customerCredit" readOnly>
+            <br/>
+            <label for="totalCashPayment">Total Cash Payment  </label> <input type="text"  [(ngModel)]="totalCashPayment" id="totalCashPayment" readonly>
+            <br/> -->
+            <table>
+                <tr>
+                    <td> <label for="totalSale">Total Sale  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; </label></td>
+                    <td> <input type="text"  [(ngModel)]="totalSale" readOnly></td>
+                    <td> <label for="totalBank">Total Bank Payment</label></td>
+                    <td> <input type="text"  [(ngModel)]="totalBankPayment" readOnly></td>
+                    <br/>
+                <tr>
+                    <td> <label for="totalCash">Total Cash in hand</label></td>
+                    <td> <input type="text"  [(ngModel)]="cashInHand" readOnly></td>
+                    <td> <label for="totalCashPayment">Total Debit Payment</label></td>
+                    <td> <input type="text"  [(ngModel)]="totalCashPayment" readOnly></td>
+                </tr>
+           </table>
+    </div>
+    <input type="submit"(click)= "saveTranExp()" value="Save"/> &nbsp;&nbsp;&nbsp;
+    <input type="submit" (click)= "clear()" value="Clear"/> &nbsp;&nbsp;&nbsp;
+    <input type="submit" (click)= "generatePDF()" value="Generate PDF"/>
+    
+</div>
+<!-- 
+<div *ngFor="let k of dcList">
+        <div *ngIf="k !=='0'">
+                <br/>
+    <label>Select Customer Name</label>
+    <select>
+        <option  *ngFor="let name of customerList">{{name}}</option>
+    </select>
+    <select>
+        <option>Debit</option>
+        <option>Credit</option>
+    </select>
+    <label>Debit Rs.</label>
+    <input type="text" />
+    <button (click) = "deleteRecordDC(i)">Delete</button>
+    </div>
+</div>
+
+        <br/><br/>
+    <label>Total Cash</label>
+    <input type="text">
+</div>
+    <br/><br/>
+    <button (click)= "addExpRow()">Add expenses</button>
+    <button (click)= "addedDCRow()">Debited from account</button>
+    <button (click)= "addedDCRow()">Credited in account</button> -->
+
+

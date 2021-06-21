@@ -1,0 +1,47 @@
+<div class="container">
+    <label> Expenses Report Date wise </label> <br/>
+    <label> From Date </label><input type="date" [(ngModel)]="fromDate">
+    
+    <label> To Date </label><input type="date" [(ngModel)]="toDate"> <br/> <br/>
+    
+    <input type="submit" (click)="search()" value="Search"> &nbsp;&nbsp;
+    <input type="submit" (click)="print()" value="Save & Print">
+</div>
+ 
+<div *ngIf='expList.length !==undefined && expList.length > 0'>
+    <div class="cont" >
+    <div class="container">
+        <div class="row" >
+            <div class="col1">
+               Date  
+            </div>
+            <div class="col1">
+                Exp. Name  
+             </div>
+             <div class="col1">
+                Amount  
+             </div>
+             
+        </div>
+        
+        <div  *ngFor="let exp of expList">
+            <div class="row">
+                    <div class="col">
+                        {{exp.date}}
+                    </div>
+                    <div class="col">
+                        {{exp.expName}}
+                    </div>
+                    <div class="col">
+                        {{exp.expCost}}
+                    </div>
+                    
+            </div>
+            
+          </div> 
+          <div class="container">
+         
+          <label> Transaction total for selected date = {{totalAmount}}</label>
+          </div>
+        </div>
+        </div>   

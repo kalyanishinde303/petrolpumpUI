@@ -1,0 +1,51 @@
+<div class="dt">
+    <div class="container">
+    <table>
+            <th colspan="2">
+                    <h2> Update customer</h2>
+            </th>
+           <tr>
+            <td><label>Select Customer Name</label></td>
+
+                    
+            <td>  <select [(ngModel)]="id" (change)="changeCust()">
+                <option  *ngFor="let customer of custList" value="{{customer.id}}">{{customer.name}}
+                </option>
+            </select> &nbsp;&nbsp; </td>   
+            </tr>
+    
+            <tr>
+                    <td> <label for="custName">Customer Name</label> </td>
+                    <td> <input type="text" [(ngModel)]="customer.name" id="exnamepName" (blur)="checkName()" name="name"
+                                    placeholder="Customer Name"></td>
+            </tr>
+    
+            <tr>
+                    <td> <label for="mobile">Customer Mobile </label></td>
+                    <td> <input type="number" [(ngModel)]="customer.mobile" id="mobile" name="mobile"
+                                    placeholder="Enter mobile number."></td>
+            </tr>
+    
+            <tr>
+                    <td> <label for="address">Customer Address</label></td>
+                    <td> <textarea [(ngModel)]="customer.address" id="address" name="address"
+                                    placeholder="Enter customer Adderess."></textarea></td>
+            </tr>
+    
+            <tr>
+                    <td> <label for="email">Customer Email</label></td>
+                    <td> <input type="email" [(ngModel)]="customer.email" id="email" name="email"
+                                    placeholder="Enter customer email."></td>
+            </tr>
+            <tr>
+                <td> <label for="email">Customer Balance</label></td>
+                <td> <input type="email" [(ngModel)]="customer.balance" id="balance" name="balance"
+                                placeholder="Enter customer balance."></td>
+        </tr>
+            <tr>
+                    <td> <input type="submit" (click)="saveCustomer()" value="Update Customer" /></td>
+                    <td> <input type="submit" (click)="clear()" value="Clear" /> </td>
+            </tr>
+    </table>
+    </div>
+</div>

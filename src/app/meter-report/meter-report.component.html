@@ -1,0 +1,101 @@
+<div class="container">
+    <label> Meter Report Date wise</label><br/>
+    <label> Select Meter</label>
+    <select [(ngModel)]="meterType">
+        <option>Petrol</option>
+        <option>Disel</option>
+        <option>Both</option>
+    </select> &nbsp;&nbsp;
+    
+    <label> From Date </label><input type="date" [(ngModel)]="fromDate">
+    
+    <label> To Date </label><input type="date" [(ngModel)]="toDate"> <br/><br/>
+    
+    <input type="submit" (click)="search()" value="Search"> &nbsp; &nbsp;
+    <input type="submit" (click)="print()" value="Print & Save">
+</div>
+
+<div *ngIf="ptList.length !==undefined && ptList.length > 0">
+    <div class="cont" >
+    <div class="container">
+        <div class="row" >
+            <div class="col1">
+               Date  
+            </div>
+            <div class="col1">
+               Petrol ltr  
+             </div>
+             <div class="col1">
+                Petrol Rate  
+             </div>
+             <div class="col1">
+                Total Sale  
+             </div>
+        </div>
+        
+        <div  *ngFor="let pt of ptList">
+            <div class="row">
+                    <div class="col">
+                        {{pt.date}}
+                    </div>
+                    <div class="col">
+                        {{pt.totalPtLtr}}
+                    </div>
+                    <div class="col">
+                        {{pt.petrolRate}}
+                    </div>
+                    <div class="col">
+                        {{pt.petrolSale}}
+                    </div>
+            </div>
+            
+          </div> 
+          <div class="container">
+         
+          <label> Transaction total for selected date = {{totalPetrolSale}}</label>
+          </div>
+        </div>
+        </div>
+</div>
+        <div *ngIf="dsList.length !==undefined && dsList.length > 0">
+            <div class="cont" >
+            <div class="container">
+                <div class="row" >
+                    <div class="col1">
+                       Date  
+                    </div>
+                    <div class="col1">
+                       Disel ltr  
+                     </div>
+                     <div class="col1">
+                        Disel Rate  
+                     </div>
+                     <div class="col1">
+                        Disel Sale  
+                     </div>
+                </div>
+                
+                <div  *ngFor="let ds of dsList">
+                    <div class="row">
+                            <div class="col">
+                                {{ds.date}}
+                            </div>
+                            <div class="col">
+                                {{ds.totalDsLtr}}
+                            </div>
+                            <div class="col">
+                                {{ds.diselRate}}
+                            </div>
+                            <div class="col">
+                                {{ds.diselSale}}
+                            </div>
+                    </div>
+                    
+                  </div> 
+                  <div class="container">
+                 
+                  <label> Transaction total for selected date = {{totalDiselSale}}</label>
+                  </div>
+                </div>
+                </div>
+            </div>
